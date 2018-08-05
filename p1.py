@@ -11,12 +11,12 @@ def maplst(lst, fun):
     if len(lst) == 0:
         return []
     elif type(lst[0]) == list:
-        return maplst([lst[0][0]] + lst[1:], fun)
+        return maplst(lst[0] + lst[1:], fun)
     else:
         return [fun(lst[0])] + maplst(lst[1:], fun)
 
 ls = [1,2,3,4,5]
-ls2 = [[1],2,[[[3]]],4,5]
+ls2 = [[[1]], [2, [3, 4], 5], 6]
 print(mapflatlst(ls, times2))
 print(maplst(ls2, times2))
 
