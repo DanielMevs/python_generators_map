@@ -20,6 +20,7 @@ def running_mapped_max(seq, fun):
 
 for x in running_max([1,3,2,4,0,2]):
     print(x, end=", ")
+
 print("\n")
 
 teamdata = [(2010, 15), (2011, 12), (2012, 20), (2013, 23), (2014, 19), (2015, 21)]
@@ -28,5 +29,5 @@ for year_wins in running_mapped_max(teamdata, lambda yw: yw[1]):
 
 print("\n")
 
-for year_wins in running_mapped_max(teamdata, lambda yw: (yw[0] <= 2012)*yw[1]):
+for year_wins in running_mapped_max(list(filter(lambda yw: yw[0] <= 2012,teamdata)), lambda yw: yw[1]):
     print(year_wins, end=", ")
